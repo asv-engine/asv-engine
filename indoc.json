@@ -1,0 +1,8 @@
+{
+  "files": ["*.md"],
+  "readme": "README.md",
+  "name": "ASV Engine",
+  "output": "docs",
+  "version": "0.0.1",
+  "owners": "ASV Engine contributors"
+}
