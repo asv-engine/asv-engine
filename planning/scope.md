@@ -42,6 +42,9 @@
 
 * Component-level simulation and failures
 * Component-level control software
+* Centripetal force
+* Tethers
+* Dynamic docking
 
 ## Control simulation
 
