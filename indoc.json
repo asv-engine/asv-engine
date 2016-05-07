@@ -1,5 +1,10 @@
 {
-  "files": ["*.md"],
+  "files": [
+    "**/*.md"
+  ],
+  "ignore": [
+    "docs/**/*"
+  ],
   "readme": "README.md",
   "name": "ASV Engine",
   "output": "docs",
