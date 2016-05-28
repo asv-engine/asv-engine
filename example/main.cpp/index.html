@@ -1,0 +1,247 @@
+<!doctype html>
+<html>
+  <head>
+    <title>example/main.cpp</title>
+    <link rel="stylesheet" href="./../../public/style.css" />
+    <link rel="icon" type="image/png" href="./../../public/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./../../public/jquery.min.js"></script>
+    <script src="./../../public/script.js"></script>
+  </head>
+  <body class="code">
+    
+    <main id="sections">
+
+      <!-- The header -->
+
+        
+      <section class="section header files-hidden" id="header">
+
+        <aside class="comment">
+
+          <header>
+
+            <div class="file-path">
+              
+              
+              <a id="project-overview" href="./../.." title="Project Overview">libasv<span id="version">0.0.1</span></a>
+              
+              <div class="files-menu">
+                <span id="filename" title="example/main.cpp">example/main.cpp</span>
+                
+              
+                <ul class="files hidable">
+                  
+                  
+<li class="file">
+  
+<a href="../../include/component.hpp" title="include/component.hpp">
+    
+<span class="language" style="background-color: #000">HPP</span>
+
+
+<span class="filename">include/component.hpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../../include/module.hpp" title="include/module.hpp">
+    
+<span class="language" style="background-color: #000">HPP</span>
+
+
+<span class="filename">include/module.hpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../../include/simulation.hpp" title="include/simulation.hpp">
+    
+<span class="language" style="background-color: #000">HPP</span>
+
+
+<span class="filename">include/simulation.hpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../../include/time.hpp" title="include/time.hpp">
+    
+<span class="language" style="background-color: #000">HPP</span>
+
+
+<span class="filename">include/time.hpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../../include/vehicle.hpp" title="include/vehicle.hpp">
+    
+<span class="language" style="background-color: #000">HPP</span>
+
+
+<span class="filename">include/vehicle.hpp</span>
+
+</a>
+
+</li>
+<li class="file separator">
+  
+  
+<a href="../../src/component.cpp" title="src/component.cpp">
+    
+<span class="language" style="background-color: #000">CPP</span>
+
+
+<span class="filename">src/component.cpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../../src/module.cpp" title="src/module.cpp">
+    
+<span class="language" style="background-color: #000">CPP</span>
+
+
+<span class="filename">src/module.cpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../../src/simulation.cpp" title="src/simulation.cpp">
+    
+<span class="language" style="background-color: #000">CPP</span>
+
+
+<span class="filename">src/simulation.cpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../../src/time.cpp" title="src/time.cpp">
+    
+<span class="language" style="background-color: #000">CPP</span>
+
+
+<span class="filename">src/time.cpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../../src/vehicle.cpp" title="src/vehicle.cpp">
+    
+<span class="language" style="background-color: #000">CPP</span>
+
+
+<span class="filename">src/vehicle.cpp</span>
+
+</a>
+
+</li>
+
+                  
+                </ul>
+                
+              </div>
+                
+            </div>
+
+            <div class="spacer"></div>
+            
+            
+          </header>
+            
+        </aside>
+
+        
+        <div class="code empty">
+        </div>
+
+      </section>
+
+      <!-- The main code section -->
+      
+      <section class="section">
+
+  
+  <aside class="comment empty">
+    <div class="text markdown"></div>
+  </aside>
+
+  <div class="code">
+    <pre><code><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unistd.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;time.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">"asv.h"</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv)</span> </span>{
+  ASV::Simulation sim;
+
+  <span class="hljs-keyword">int</span> tickrate = <span class="hljs-number">100</span>;
+
+  <span class="hljs-keyword">int</span> i;
+
+  ASV::Vehicle dumb;
+
+  sim.addVehicle(&amp;dumb);
+
+  <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>) {
+
+    sim.tick(<span class="hljs-number">10.0</span>);
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\rSimulation time: "</span> &lt;&lt; ASV::timeToString(sim.getTime()) &lt;&lt; <span class="hljs-string">"    "</span> &lt;&lt; <span class="hljs-built_in">std</span>::flush;
+
+    usleep(<span class="hljs-number">50000</span>);
+  }
+  
+  return <span class="hljs-number">0</span>;
+}</code></pre>
+  </div>
+
+  
+</section>
+
+      
+      
+      <section class="section footer" id="footer">
+        
+        <aside class="comment">
+          <span class="content project-copyright">&copy; Copyright 2016 ASV Engine contributors.</span>
+        </aside>
+
+        <div class="code">
+          <span class="content page-generation-time">Generated Sat, 28 May 2016 19:53:18 GMT</span>
+        </div>
+        
+      </section>
+      
+    </main>
+
+  </body>
+</html>
+

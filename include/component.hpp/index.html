@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+  <head>
+    <title>include/component.hpp</title>
+    <link rel="stylesheet" href="./../../public/style.css" />
+    <link rel="icon" type="image/png" href="./../../public/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./../../public/jquery.min.js"></script>
+    <script src="./../../public/script.js"></script>
+  </head>
+  <body class="code">
+    
+    <main id="sections">
+
+      <!-- The header -->
+
+        
+      <section class="section header files-hidden" id="header">
+
+        <aside class="comment">
+
+          <header>
+
+            <div class="file-path">
+              
+              
+              <a id="project-overview" href="./../.." title="Project Overview">libasv<span id="version">0.0.1</span></a>
+              
+              <div class="files-menu">
+                <span id="filename" title="include/component.hpp">include/component.hpp</span>
+                
+              
+                <ul class="files hidable">
+                  
+                  
+<li class="file">
+  
+<a href="../../example/main.cpp" title="example/main.cpp">
+    
+<span class="language" style="background-color: #000">CPP</span>
+
+
+<span class="filename">example/main.cpp</span>
+
+</a>
+
+</li>
+<li class="file separator">
+  
+  
+<a href="../module.hpp" title="include/module.hpp">
+    
+<span class="language" style="background-color: #000">HPP</span>
+
+
+<span class="filename">include/module.hpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../simulation.hpp" title="include/simulation.hpp">
+    
+<span class="language" style="background-color: #000">HPP</span>
+
+
+<span class="filename">include/simulation.hpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../time.hpp" title="include/time.hpp">
+    
+<span class="language" style="background-color: #000">HPP</span>
+
+
+<span class="filename">include/time.hpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../vehicle.hpp" title="include/vehicle.hpp">
+    
+<span class="language" style="background-color: #000">HPP</span>
+
+
+<span class="filename">include/vehicle.hpp</span>
+
+</a>
+
+</li>
+<li class="file separator">
+  
+  
+<a href="../../src/component.cpp" title="src/component.cpp">
+    
+<span class="language" style="background-color: #000">CPP</span>
+
+
+<span class="filename">src/component.cpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../../src/module.cpp" title="src/module.cpp">
+    
+<span class="language" style="background-color: #000">CPP</span>
+
+
+<span class="filename">src/module.cpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../../src/simulation.cpp" title="src/simulation.cpp">
+    
+<span class="language" style="background-color: #000">CPP</span>
+
+
+<span class="filename">src/simulation.cpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../../src/time.cpp" title="src/time.cpp">
+    
+<span class="language" style="background-color: #000">CPP</span>
+
+
+<span class="filename">src/time.cpp</span>
+
+</a>
+
+</li>
+  
+<li class="file">
+  
+<a href="../../src/vehicle.cpp" title="src/vehicle.cpp">
+    
+<span class="language" style="background-color: #000">CPP</span>
+
+
+<span class="filename">src/vehicle.cpp</span>
+
+</a>
+
+</li>
+
+                  
+                </ul>
+                
+              </div>
+                
+            </div>
+
+            <div class="spacer"></div>
+            
+            
+          </header>
+            
+        </aside>
+
+        
+        <div class="code empty">
+        </div>
+
+      </section>
+
+      <!-- The main code section -->
+      
+      <section class="section">
+
+  
+  <aside class="comment empty">
+    <div class="text markdown"></div>
+  </aside>
+
+  <div class="code">
+    <pre><code><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> ASV_COMPONENT_H</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ASV_COMPONENT_H</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;list&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">"time.hpp"</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">"module.hpp"</span></span>
+
+<span class="hljs-keyword">namespace</span> ASV {
+
+<span class="hljs-keyword">class</span> Vehicle;
+
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ComponentTimestep = RootTimestep;
+
+<span class="hljs-keyword">class</span> Component;
+
+<span class="hljs-keyword">class</span> Component {
+  
+ <span class="hljs-keyword">public</span>:
+  Component();
+  ~Component();
+
+  <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">tick</span><span class="hljs-params">()</span></span>;
+  <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">tick</span><span class="hljs-params">(<span class="hljs-keyword">double</span> step)</span></span>;
+  <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">getTime</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+  <span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getTicks</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+  
+ <span class="hljs-keyword">private</span>:
+  <span class="hljs-keyword">double</span> time;
+  <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> ticks;
+  
+  <span class="hljs-built_in">std</span>::<span class="hljs-built_in">list</span>&lt;Component*&gt; components;
+  
+  <span class="hljs-built_in">std</span>::<span class="hljs-built_in">list</span>&lt;Module*&gt; modules;
+  
+};
+
+}
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span></code></pre>
+  </div>
+
+  
+</section>
+
+      
+      
+      <section class="section footer" id="footer">
+        
+        <aside class="comment">
+          <span class="content project-copyright">&copy; Copyright 2016 ASV Engine contributors.</span>
+        </aside>
+
+        <div class="code">
+          <span class="content page-generation-time">Generated Sat, 28 May 2016 19:53:18 GMT</span>
+        </div>
+        
+      </section>
+      
+    </main>
+
+  </body>
+</html>
+
